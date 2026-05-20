@@ -27,7 +27,7 @@ def login():
         if admin:
             session['username'] = username
             session['role'] = role
-            return render_template('admin.html')
+            return render_template('index.html')
     elif role=='student':
         cursor.execute("SELECT * FROM student_login WHERE username=%s AND password=%s",(username,password))
         student=cursor.fetchone()
@@ -44,7 +44,7 @@ def logout():
 
 @app.route('/admin')
 def home_admin():
-    return render_template('admin.html')
+    return render_template('index.html')
 
 @app.route('/add_book', methods=['GET', 'POST'])
 def add_book():
