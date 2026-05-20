@@ -1,0 +1,29 @@
+{% extends "admin.html" %}
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<div class="content">
+    <h2>Register users</h2>
+    <form action="/register_user" method="post">
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username" required><br>
+        
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br>
+
+        <label for="role">Role:</label><br>
+        <select id="role" name="role" required>
+            
+            <option value="admin">Admin</option>
+        </select><br>
+
+        <button type="submit">Register</button>
+    </form>
+    {% if success %}
+    <p class="success">  {{success}}  </p>
+    {% endif %}
+</div>
+{% endblock %}

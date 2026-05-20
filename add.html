@@ -1,0 +1,38 @@
+{% extends "admin.html" %}
+{% block title %}Add Book{% endblock %}
+
+{% block content %}
+<div class="content">
+    <h2>Add New Book</h2>
+    
+    <form action="/add_book" method="post">
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title" required><br>
+
+        <label for="author">Author:</label><br>
+        <input type="text" id="author" name="author" required><br>
+
+        <label for="quantity">Quantity:</label><br>
+        <input type="number" id="quantity" name="quantity" required><br>
+
+        <label for="location">Location:</label><br>
+        <select id="location" name="location" required>
+            <option value="R1">R1</option>
+            <option value="R2">R2</option>
+            <option value="R3">R3</option>
+            <option value="R4">R4</option>
+            <option value="R5">R5</option>
+            <option value="R6">R6</option>
+            <option value="R7">R7</option>
+            <option value="R8">R8</option>
+            <option value="R9">R9</option>
+            <option value="R10">R10</option>
+        </select><br>
+
+        <button type="submit">Add Book</button>
+    </form>
+    {% if success %}
+    <p class="success">  {{success}}  </p>
+    {% endif %}
+</div>
+{% endblock %}

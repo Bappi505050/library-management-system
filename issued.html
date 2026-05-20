@@ -1,0 +1,82 @@
+{% extends "admin.html" %}
+{% block title %}Issued Books{% endblock %}
+
+{% block content %}
+
+<div class="view_books">
+    <h2>Issued Books</h2>
+    <div class="search">
+    <form method="get" action="/search_names">
+       <input type="text" placeholder="Search names..." name="query">
+       <button type="submit"><i class="fa-solid fa-magnifying-glass" style="color:rgb(14, 13, 13)"></i></button>
+   </form>
+    </div>
+    <div class="table_container">
+    <table border="1">
+        <thead
+        <tr>
+            <th>Sl.NO.</th>
+            <th>Book Title</th>
+            <th>Student Name</th>
+            <th>Trade Name</th>
+            <th>Quantity</th>
+            <th>Date of issue</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for book in issued_books %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ book[0] }}</td>
+            <td>{{ book[1] }}</td>
+            <td>{{ book[2] }}</td>
+            <td>{{ book[3] }}</td>
+            <td>{{ book[4] }}</td>
+            <td>
+                {% if (now - book[4]).days >= 7 %}
+                    <a href="/renew_book/{{ book[0] }}/{{ book[1] }}">
+                        <button onclick="return confirm('Confirm renew!')" style="background-color: red; color:white;">
+                            Renew
+                        </button>
+                    </a>
+                {% endif %}
+                <a href="/edit_issued/{{ book[0] }}/{{ book[1] }}">
+                    <button style="background-color: blue; color: white; border: none; padding: 2px ; cursor: pointer;">
+                        Edit
+                    </button>
+                </a>
+
+
+                <a href="/return_book/{{ book[0] }}/{{ book[1] }}">
+                    <button style="background-color: #28a745; color: white; border: none; padding: 2px; cursor: pointer;">
+                        Return
+                    </button>
+                    </a>
+
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+</div>
+<script>
+function returnBook(title) {
+    let student = prompt("Enter Student Name:");
+    if (!student) return;
+
+    let trade = prompt("Enter Student Trade:");
+    if (!trade) return;
+
+    let qty = prompt("How many copies to return?");
+    
+    if (qty && qty > 0) {
+        
+        const url = `/return_book/${encodeURIComponent(title)}/${qty}/${encodeURIComponent(student)}/${encodeURIComponent(trade)}`;
+        window.location.href = url;
+    }
+}
+
+</script>
+{% endblock %}

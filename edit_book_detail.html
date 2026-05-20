@@ -1,0 +1,22 @@
+{% extends "admin.html" %}
+{% block content %}
+<div class="view_books" style="max-width: 700px;font-size: 20px; margin: 50px auto; background: rgba(255,255,255,0.95); padding: 20px; border-radius: 8px; box-shadow: 0px 0px 10px rgba(0,0,0,0.5);">
+    <h2 style="color: black; text-align: center;">Edit Book Details</h2>
+    <form method="POST">
+        <label style="color: black;">Book Title:</label><br>
+        <input type="text" name="title" value="{{ book[0] }}" style="width:100%; margin-bottom:15px;   padding:5px;"><br>
+
+        <label style="color: black;">Author:</label><br>
+        <input type="text" name="author" value="{{ book[1] }}" style="width:100%; margin-bottom:15px;   padding:5px;"><br>
+
+        <label style="color: black;">Quantity:</label><br>
+        <input type="number" name="quantity" value="{{ book[2] }}" style="width:100%; margin-bottom:15px;   padding:5px;"><br>
+
+        <label style="color: black;">Location:</label><br>
+        <input type="text" name="location" value="{{ book[3] }}" style="width:100%; margin-bottom:15px;   padding:5px;"><br>
+
+        <button type="submit" style="background: #28a745; color: white; border:none; padding:10px; width:100%; cursor:pointer;">Update Book</button>
+        <p style="text-align:center;"><a href="/view_books" style="color: #333;">Cancel</a></p>
+    </form>
+</div>
+{% endblock %}

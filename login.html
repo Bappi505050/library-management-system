@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
+</head>
+<body>
+    <div class="navbar">
+        <h1><i class="fa-solid fa-book-reader"></i>Library Management Login Portal</h1>
+    </div>
+    <div class="form_container">
+        <form action="/login" method="post">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username" placeholder="please enter your name" required><br>
+            
+            <label for="role">Role:</label><br>
+            
+            <select id="role" name="role" required>
+                <option value="">Select Role</option>
+                <option value="admin">Admin</option>
+               
+             </select><br>
+
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" placeholder="Please enter your password" required><br>
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    {% if error %}
+        <p style="color: red;" id="error">{{ error }}</p>
+    {% endif %}
+
+
+</body>
+</html>

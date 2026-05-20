@@ -1,0 +1,22 @@
+{% extends "admin.html" %}
+{% block content %}
+<div class="view_books" style="max-width: 500px; background: rgba(255,255,255,0.9); padding: 30px; border-radius: 10px;">
+    <h2>Edit Issued Record</h2>
+    <form method="POST" id="edit_issued">
+        <label>Book Title:</label><br>
+        <input type="text" name="book_title" value="{{ item[1] }}" style="width: 100%; padding: 8px; margin: 10px 0;"><br>
+
+        <label>Student Name:</label><br>
+        <input type="text" name="student_name" value="{{ item[2] }}" style="width: 100%; padding: 8px; margin: 10px 0;"><br>
+
+        <label>Trade Name:</label><br>
+        <input type="text" name="trade_name" value="{{ item[3] }}" style="width: 100%; padding: 8px; margin: 10px 0;"><br>
+
+        <label>Quantity:</label><br>
+        <input type="number" name="quantity" value="{{ item[4] }}" style="width: 100%; padding: 8px; margin: 10px 0;"><br>
+
+        <button type="submit" style="background: #28a745; color: white; padding: 2px 5px; border: none; cursor: pointer;">Save Corrections</button>
+        <a href="/view_issued" style="margin-left: 10px; color: #666;">Cancel</a>
+    </form>
+</div>
+{% endblock %}

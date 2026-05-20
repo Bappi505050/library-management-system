@@ -1,0 +1,46 @@
+{% extends "admin.html" %}
+{% block title %}Manage Users{% endblock %}
+
+{% block content %}
+<div class="view_books">
+   
+   <h2>Registered Users</h2> 
+    <div class="table_container"> 
+    <table border="1" cellpadding="1" cellspacing="0">
+        <thead>
+            <tr> 
+                <th>Sl no.</th>
+                <th>Username</th>
+                <th>Name</th>
+                <th>Password</th>
+                <th>Role</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ user[1] }}</td>
+                <td>{{ user[2] }}</td>
+                <td>{{ user[3] }}</td>
+                <td>{{ user[4] }}</td>
+               
+                <td>
+                    
+                    <a href="/delete_user/{{ user[0] }}" 
+                        style="color: red; text-decoration: none; margin-left: 5px; border: 1px solid black; border-radius: 3px; margin-right: 5px;
+                        background-color: rgb(228, 225, 225); font-size: 14px;"
+                        onclick="return confirm('Are you sure you want to delete the user: {{ user[1] }}?')">
+                        Delete
+                    </a>
+                    
+                </td>
+            </tr>
+            {% endfor %}
+           
+        </tbody>
+    </table>
+    </div>
+</div>
+{% endblock %}

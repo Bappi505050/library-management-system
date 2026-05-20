@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.navbar{
+    height: 5vh;
+    width: 60%;
+    background-color: royalblue;
+    margin-top: 60px;
+    border: 1px solid transparent;
+    border-radius: 30px;
+    color:white;
+    text-align: center;
+}
+body{
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(rgb(0, 70, 128),rgb(50, 26, 188));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+form{
+    font-size: 30px;
+    margin-top: 60px;
+}
+form input,select{
+    height: 40px;
+    width: 700px;
+    margin: 10px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    font-size: 18px;
+    text-align: center;
+}
+form button{
+    margin-left: 10px;
+    height: 40px;
+    width: 100px;
+    background-color: green;
+    color: white;
+    font-size: 18px;
+}
+
+form label{
+    color:white;
+    margin-top: 40px;
+}
+#error{
+    margin-top: 20px;
+    font-size: 18px;
+}

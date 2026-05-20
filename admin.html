@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Admin Home{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="navbar">
+        <h1><i class="fa-solid fa-building-columns" style="font-size: 3rem; color: white;"></i> Welcome to Library Management System</h1>
+        <div class="nav_buttons">
+        <a href="/admin"><button class="home">Home</button></a>
+        <a href="/logout"><button class="logout_btn">Logout</button></a>
+        </div>
+    </div>
+    {% block content %}
+    <div class="menu_box">
+        <a href="/add_book" class="menu_item"><button>Add Book</button></a>
+        <a href="/view_books" class="menu_item"><button>View Books</button></a>
+        <a href="/manage_users" class="menu_item"><button>Manage Users</button></a>
+        <a href="/register_user" class="menu_item"><button>Register User</button></a>
+        <a href="/view_issued" class="menu_item"><button>Record</button></a>
+        
+    </div>
+    {% endblock %}
+</body>
+</html>
